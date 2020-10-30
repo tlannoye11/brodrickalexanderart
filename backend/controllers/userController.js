@@ -4,10 +4,6 @@ import User from '../models/userModel.js';
 
 const authUser = asyncHandler(async (request, response) => {
 	const { email, password } = request.body;
-	console.log(`Email: ${email}, pass: ${password}`);
-	console.log('request body', request.body);
-	console.log('Email:', request.body.email);
-
 	const user = await User.findOne({ email });
 
 	if (user && (await user.matchPassword(password))) {
@@ -24,4 +20,20 @@ const authUser = asyncHandler(async (request, response) => {
 	}
 });
 
-export { authUser };
+const getUserProfile = asyncHandler(async (request, response) => {
+	const user = await User.findById(request.user._id);
+
+	if (user) {
+		response.json({
+			_id: user._id,
+			name: user.name,
+			email: user.email,
+			isAdmin: user.isAdmin,
+		});
+	} else {
+		response.status(404);
+		throw new Error('User not found');
+	}
+});
+
+export { authUser, getUserProfile };
