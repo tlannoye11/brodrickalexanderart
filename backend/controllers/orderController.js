@@ -13,7 +13,7 @@ const addOrderItems = asyncHandler(async (request, response) => {
 	} = request.body;
 
 	if (orderItems && orderItems.length === 0) {
-		res.status(400);
+		response.status(400);
 		throw new Error('No order items');
 		return;
 	} else {
@@ -30,7 +30,7 @@ const addOrderItems = asyncHandler(async (request, response) => {
 
 		const createdOrder = await order.save();
 
-		res.status(201).json(createdOrder);
+		response.status(201).json(createdOrder);
 	}
 });
 
