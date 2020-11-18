@@ -70,4 +70,10 @@ const updateOrderToPaid = asyncHandler(async (request, response) => {
 	}
 });
 
-export { addOrderItems, getOrderById, updateOrderToPaid };
+const getMyOrders = asyncHandler(async (request, response) => {
+	const orders = await Order.find({ user: request.user._id });
+
+	response.json(orders);
+});
+
+export { addOrderItems, getOrderById, updateOrderToPaid, getMyOrders };
