@@ -93,6 +93,7 @@ const updateUserProfile = asyncHandler(async (request, response) => {
 
 const getUsers = asyncHandler(async (request, response) => {
 	const users = await User.find({});
+	console.log('found users:', users);
 	response.json(users);
 });
 
