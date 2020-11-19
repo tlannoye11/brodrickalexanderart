@@ -93,8 +93,26 @@ const updateUserProfile = asyncHandler(async (request, response) => {
 
 const getUsers = asyncHandler(async (request, response) => {
 	const users = await User.find({});
-	console.log('found users:', users);
 	response.json(users);
 });
 
-export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers };
+const deleteUser = asyncHandler(async (request, response) => {
+	const user = await User.findById(request.params.id);
+
+	if (user) {
+		await user.remove();
+		response.json({ message: 'User removed' });
+	} else {
+		response.status(404);
+		throw new Error('User not found');
+	}
+});
+
+export {
+	authUser,
+	registerUser,
+	getUserProfile,
+	updateUserProfile,
+	getUsers,
+	deleteUser,
+};
