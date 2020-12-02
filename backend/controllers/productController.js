@@ -2,7 +2,7 @@ import asyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
 
 const getProducts = asyncHandler(async (request, response) => {
-	const pageSize = 2;
+	const pageSize = 10;
 	const page = Number(request.query.pageNumber) || 1;
 	const keyword = request.query.keyword
 		? {
@@ -130,6 +130,13 @@ const createProductReview = asyncHandler(async (request, response) => {
 		throw new Error('Product not found');
 	}
 });
+
+const getTopProducts = asyncHandler(async (request, response) => {
+	const products = await Product.find({}).sort({ rating: -1 }).limit(3);
+
+	response.json(products);
+});
+
 export {
 	getProducts,
 	getProductById,
@@ -137,4 +144,5 @@ export {
 	createProduct,
 	updateProduct,
 	createProductReview,
+	getTopProducts,
 };
