@@ -12,9 +12,10 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-	title: 'Welcome to ProShop',
-	description: 'We sell fun products',
-	keywords: 'electronics, buy electronics, cheap electronics',
+	title: 'Brodrick Alexander Art',
+	description: 'Life Through Art - Original and Commissioned Oil/Digital Art',
+	keywords:
+		'art, commissioned art, oil, digital art, palette knife creations',
 };
 
 export default Meta;
