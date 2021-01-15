@@ -16,10 +16,12 @@ const storage = multer.diskStorage({
 });
 
 function checkFileType(file, callback) {
+	console.log('check file type:', file);
 	const filetypes = /jpg|jpeg|png/;
-	const extname = filetypes
-		.test(path.extname(file.originalname))
-		.toLowerCase();
+	const extname = filetypes.test(
+		path.extname(file.originalname).toLowerCase()
+	);
+	console.log('extname:', extname);
 	const mimetype = filetypes.test(file.mimetype);
 
 	if (extname && mimetype) {
@@ -32,7 +34,7 @@ function checkFileType(file, callback) {
 const upload = multer({
 	storage,
 	fileFilter: function (request, file, callback) {
-		checkFileType();
+		checkFileType(file, callback);
 	},
 });
 
