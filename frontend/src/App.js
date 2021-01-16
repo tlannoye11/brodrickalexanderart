@@ -23,6 +23,14 @@ const App = () => {
 	return (
 		<Router>
 			<Header />
+			<div className='hero-image'>
+				<div className='hero-text'>
+					<h1 className='hero-title'>Life Through Art</h1>
+					<h2 className='hero-subtitle'>
+						Original and Commissioned Oil/Digital Art
+					</h2>
+				</div>
+			</div>
 			<main className='py-3'>
 				<Container>
 					<Route path='/order/:id' component={OrderScreen} />
