@@ -58,6 +58,8 @@ const ProductEditScreen = ({ match, history }) => {
 		formData.append('image', file);
 		setUploading(true);
 
+		console.log('file:', file);
+
 		try {
 			const config = {
 				headers: {
@@ -66,6 +68,8 @@ const ProductEditScreen = ({ match, history }) => {
 			};
 
 			const { data } = await axios.post('/api/upload', formData, config);
+
+			console.log('data after upload', data);
 
 			setImage(data);
 			setUploading(false);
