@@ -18,7 +18,12 @@ const Header = () => {
 
 	return (
 		<header>
-			<Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+			<Navbar
+				// fixed='top'
+				bg='dark'
+				variant='dark'
+				expand='lg'
+				collapseOnSelect>
 				<Container>
 					<LinkContainer to='/'>
 						<Navbar.Brand>Brodrick Alexander Art</Navbar.Brand>
@@ -35,6 +40,9 @@ const Header = () => {
 								<Nav.Link>
 									<i className='fas fa-shopping-cart'></i>Cart
 								</Nav.Link>
+							</LinkContainer>
+							<LinkContainer to='/contact'>
+								<Nav.Link>Contact</Nav.Link>
 							</LinkContainer>
 							{userInfo ? (
 								<NavDropdown

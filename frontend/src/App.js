@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
+import ContactScreen from './screens/ContactScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -23,14 +24,17 @@ const App = () => {
 	return (
 		<Router>
 			<Header />
-			<div className='hero-image'>
-				<div className='hero-text'>
-					<h1 className='hero-title'>Life Through Art</h1>
-					<h2 className='hero-subtitle'>
-						Original and Commissioned Oil/Digital Art
-					</h2>
+			{/* {window.location.pathname === '/' && (
+				<div className='hero-image'>
+					<div className='hero-text'>
+						<h1 className='hero-title'>Life Through Art</h1>
+						<h2 className='hero-subtitle'>
+							Original and Commissioned Oil/Digital Art
+							{window.location.pathname}
+						</h2>
+					</div>
 				</div>
-			</div>
+			)} */}
 			<main className='py-3'>
 				<Container>
 					<Route path='/order/:id' component={OrderScreen} />
@@ -42,6 +46,7 @@ const App = () => {
 					<Route path='/profile' component={ProfileScreen} />
 					<Route path='/product/:id' component={ProductScreen} />
 					<Route path='/cart/:id?' component={CartScreen} />
+					<Route path='/contact' component={ContactScreen} />
 					<Route path='/admin/userlist' component={UserListScreen} />
 					<Route
 						path='/admin/user/:id/edit'

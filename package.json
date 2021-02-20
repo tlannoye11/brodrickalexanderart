@@ -1,7 +1,7 @@
 {
-  "name": "proshop-mern",
+  "name": "brodrickalexanderart",
   "version": "1.0.0",
-  "description": "MERN shopping cart app",
+  "description": "Brodrick Alexander Art app",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -9,29 +9,31 @@
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tlannoye11/proshop-mern.git"
+    "url": "git+https://github.com/tlannoye11/brodrickalexanderart.git"
   },
   "author": "Travis Lannoye",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tlannoye11/proshop-mern/issues"
+    "url": "https://github.com/tlannoye11/brodrickalexanderart/issues"
   },
-  "homepage": "https://github.com/tlannoye11/proshop-mern#readme",
+  "homepage": "https://github.com/tlannoye11/brodrickalexanderart#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
+    "express-handlebars": "^5.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.18",
+    "nodemailer-mailgun-transport": "^2.0.2"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

@@ -9,6 +9,7 @@ import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import emailRoutes from './routes/emailRoutes.js';
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/email', emailRoutes);
 
 app.get('/api/config/paypal', (request, response) =>
 	response.send(process.env.PAYPAL_CLIENT_ID)
@@ -50,6 +52,10 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(notFound);
 app.use(errorHandler);
+
+// Email data parsing
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
