@@ -28,20 +28,20 @@ router.post('/contact', (request, response) => {
 		}
 	});
 
-	// const mail = {
-	// 	from: name,
-	// 	to: 'username@example.com',
-	// 	subject: 'BA Art Contact Form Message',
-	// 	html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Subject: ${subject}</p><p>Message: ${message}</p>`,
-	// };
+	const mail = {
+		from: name,
+		to: process.env.EMAIL_USER,
+		subject: 'BA Art Contact Form Message',
+		html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Subject: ${subject}</p><p>Message: ${message}</p>`,
+	};
 
-	// contactEmail.sendMail(mail, (error) => {
-	// 	if (error) {
-	// 		response.json({ status: 'failed' });
-	// 	} else {
-	// 		response.json({ status: 'sent' });
-	// 	}
-	// });
+	contactEmail.sendMail(mail, (error) => {
+		if (error) {
+			response.json({ status: 'failed' });
+		} else {
+			response.json({ status: 'sent' });
+		}
+	});
 });
 
 export default router;
